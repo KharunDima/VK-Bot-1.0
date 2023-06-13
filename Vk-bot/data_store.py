@@ -59,7 +59,16 @@ def check_user(engine, profile_id, worksheet_id):
             Viewed.worksheet_id == worksheet_id
         ).first()
         return True if from_bd else False
+    
+"""-- Извлечение всех данных из таблицы viewed
+SELECT * FROM public.viewed;
 
+-- Извлечение данных только для определенного профиля
+SELECT * FROM public.viewed WHERE profile_id = 123;
+
+-- Извлечение данных только для определенного worksheet_id
+SELECT * FROM public.viewed WHERE worksheet_id = 456;
+"""
 
 if __name__ == '__main__':
     Base.metadata.create_all(engine)
