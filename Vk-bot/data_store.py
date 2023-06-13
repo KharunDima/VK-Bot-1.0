@@ -12,13 +12,30 @@ Base = declarative_base()
 
 engine = create_engine(db_url_object)
 
+"""CREATE DATABASE student_diplom
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Russian_Russia.1251'
+    LC_CTYPE = 'Russian_Russia.1251'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+"""
 
 class Viewed(Base):
     __tablename__ = 'viewed'
     profile_id = sq.Column(sq.Integer, primary_key=True)
     worksheet_id = sq.Column(sq.Integer, primary_key=True)
-
-
+    
+"""CREATE TABLE IF NOT EXISTS public.viewed
+(
+    profile_id integer NOT NULL,
+    worksheet_id integer NOT NULL,
+    CONSTRAINT viewed_pkey PRIMARY KEY (profile_id, worksheet_id)
+)
+"""
+    
 # добавление записи в бд
 
 
