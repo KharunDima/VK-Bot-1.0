@@ -44,6 +44,10 @@ def add_user(engine, profile_id, worksheet_id):
         to_bd = Viewed(profile_id=profile_id, worksheet_id=worksheet_id)
         session.add(to_bd)
         session.commit()
+        
+"""INSERT INTO public.viewed (profile_id, worksheet_id)
+   VALUES (1, 123);
+"""
 
 
 # извлечение записей из БД
